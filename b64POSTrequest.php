@@ -20,4 +20,3 @@ $context  = stream_context_create($options);
 $fp = fopen($url, 'r', false, $context);
 fpassthru($fp);
 fclose($fp);
-?>
