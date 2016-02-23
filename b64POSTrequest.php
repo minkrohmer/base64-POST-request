@@ -1,8 +1,9 @@
 <?php 
 // gets data from the body of the received POST request
 $data = file_get_contents('php://input');
+
 // base64 encodes the body from the received POST request
-$postbody = base64_encode ($data);
+$postbody = base64_encode($data);
 
 $url = 'http://api.mixpanel.com/track/';
 
@@ -14,7 +15,7 @@ $options = array(
         'content' => 'data=' . $postbody,
         ),
     );
-$context  = stream_context_create($options);
+$context = stream_context_create($options);
 
 // sends a POST request to mixpanel with the base64 encoded JSON object as the request body
 $fp = fopen($url, 'r', false, $context);
